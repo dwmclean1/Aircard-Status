@@ -1,2 +1,2 @@
 # Aircard-Status
-Web interface for viewing general modem status
+Web interface for viewing general status of Sierra Wireless Aircard modems
