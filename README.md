@@ -11,6 +11,8 @@ The modems ip address and port number are stored in a .env file in the base dire
 
 This is intended to be run as a local web server on a device such as a raspberry pi. Chrome is recommeded.
 
+Currently I have only tested this with a Netgear AC800s. The response parser should be able to handle other models that use the same message foramtting but there may be slighty buggy.
+
 ## HOWTO
 
 ### Install dependencies
