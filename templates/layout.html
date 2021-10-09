@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Modem Status</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="static/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+        <link href="static/styles.css" rel="stylesheet">
+
+    </head>
+    <body class="bg-dark">
+
+        <!-- Reboot Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content" id="reboot-modal">
+              <div hidden class='col align-self-center m-5' id='reboot-spinner'>
+                <button class="btn btn-outline btn-secondary" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Rebooting...
+                </button>
+              </div>
+              <div id='reboot-body'>
+                <div class="modal-body">Are you sure you want to reboot the modem?</div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline btn-sm btn-secondary" data-bs-dismiss="modal">No</button>
+                  <form action="/power" method="POST">   
+                    <button class="btn btn-outline-danger btn-sm" name="power" onclick=reboot() value="reboot">Yes</button>
+                  </form>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        {% block index %}{% endblock %}
+
+        <script src="static/js/bootstrap.bundle.min.js"></script>
+        <script src="static/app.js"></script>
+    </body>
+</html>

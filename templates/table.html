@@ -1,0 +1,31 @@
+
+{% extends "index.html" %} 
+{% block table %}
+    <div class="row bg-dark my-3">
+        <table class="table text-light">
+            <thead>
+                <tr>
+                <th scope="col">Connection</th>
+                <th scope="col">Band</th>
+                <th scope="col">RSSI (dBm)</th>
+                <th scope="col">RSRP (dBm)</th>
+                <th scope="col">RSRQ (dB)</th>
+                <th scope="col">RSSNR (dB)</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+            {% for key, value in status.connection_data.items() %}
+            <tr>
+                <th> {{ key }}</th>
+                <td> {{ value['Band'] }}</td>
+                <td class="band text-dark" data-quality={{ value['RSSI (dBm)'] }}> {{ value['RSSI (dBm)'] }}</td>
+                <td class='band text-dark' data-quality={{ value['RSRP (dBm)'] }}> {{ value['RSRP (dBm)'] }}</td>
+                <td class='band text-dark' data-quality={{ value['RSRQ (dB)'] }}> {{ value['RSRQ (dB)'] }}</td>
+                <td class='band text-dark' data-quality={{ value['RSSNR (dB)'] }}> {{ value['RSSNR (dB)'] }}</td>                      
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

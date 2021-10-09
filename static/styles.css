@@ -1,0 +1,31 @@
+
+.band[data-quality="Excellent"] {
+
+    background-color: rgb(0, 255, 0);
+}
+
+.band[data-quality="Good"] {
+
+    background-color: rgb(255, 255, 0);
+}
+
+.band[data-quality="Fair"] {
+    
+    background-color: rgb(255, 166, 0);
+}
+
+.band[data-quality="Poor"] {
+
+    background-color: rgb(255, 0, 0);
+}
+
+.mode[data-mode="ONLINE"] {
+    color: lime;
+}
+
+.mode[data-mode="OFFLINE"] {
+    color: red;
+}
+.mode[data-mode="LOW POWER MODE"] {
+    color: gray;
+}

@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+
+{% block index %}
+<main class='container'>
+    <!-- HEADER -->
+    <div class='row my-3'>
+
+        <!-- STATUS TEXT -->
+        <div class="col-6">
+            {% if status %}
+            <div class="row mb-1 align-items-center">
+                <div class="col-auto">
+                    <h1 data-mode='{{ status.status["Mode"] }}' class='mode display-6'> {{ status.status['Mode'] }} </h1>
+                </div>
+
+                <!-- SIGNAL QUALITY BARS-->
+                <div class="col-6">
+                    
+                    {% if bars %}
+                        {% if bars == 0 %}   
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-reception-0 text-light" viewBox="0 0 16 16">
+                                <path d="M0 13.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        {% elif bars == 1 %}   
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-reception-1 text-light" viewBox="0 0 16 16">
+                                <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        {% elif bars == 2 %}   
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-reception-2 text-light" viewBox="0 0 16 16">
+                                <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4 5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        {% elif bars == 3 %}   
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-reception-3 text-light" viewBox="0 0 16 16">
+                                <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-8zm4 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        {% elif bars == 4 %}   
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-reception-4 text-light" viewBox="0 0 16 16">
+                                <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-8zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-11z"/>
+                            </svg>
+                        {% endif %}   
+                    {% endif %} 
+                </div>
+            </div>
+            <div class='row mb-1'>
+                <div class='col text-muted display-6'>Uptime : {{ status.status['Uptime'] }}</div>
+            {% else %} 
+                <div class="display-6 text-light" data-mode="OFFLINE">MODEM UNAVAILABLE</div>
+            {% endif %}
+            </div> 
+            
+        </div>
+
+        
+        <!-- POWER -->
+        {% if status %}
+        <div class='col-6'>
+            <div class='row my-3 justify-content-end'>
+                <div class='col-auto'>
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reboot</button>
+                </div>
+            </div>                             
+            <div class='row my-3 justify-content-end'>
+                <div class='col-auto'>
+                    <form action="/power" method="POST">   
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="LowPowerModeToggle" 
+                            {% if status.status['Mode'] == "LOW POWER MODE" %}
+                                checked
+                            {% endif %}>
+                            <label class="form-check-label text-light" for="LowPowerModeToggle"><small>Low Power Mode</small></label>
+                        </div> 
+                    </form>
+                    
+                </div>
+            </div>                 
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- CONNECTION DATA TABLE -->
+        {% if status and status.connection_data %}
+            {% block table %}{% endblock %}
+        {% elif error %}
+            {% block error %}{% endblock %}
+        {% endif %}
+
+    <!-- REFRESH/MODEL INFO -->
+    <div class='row my-3'>
+        <div class="col-6 text-muted">
+            {% if make %}
+            <small>{{make}} - {{model}}</small>
+            {% endif %}
+        </div>  
+        <div class="col-6 text-end text-light">
+            <span id="refresh"><small>Refreshing data in <span id='timer'>60</span> seconds...</small></span>
+            <a href="javascript:refresh()" class="text-end"><small>Refresh now</small></a>
+        </div>     
+    </div>
+
+    <!-- OPTIONS -->
+    <div class="row my-3">
+        <div class='col-6'>
+            <div class='my-3'>
+                <button class="btn btn-outline-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Options
+                </button>
+            </div>
+            <div class="collapse my-4" id="collapseExample">
+
+                <!-- BAND SELECT -->
+                {% if bandmask %}
+                <div class='row mb-4'>
+                    <p><span class="h5 text-light">Bandmask</span></p>
+                    <form action="/setBandmask" method="POST">
+                    {% for key, value in bandmask.items() %}
+                        <div class="form-check text-light form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="band" value="{{ key }}"
+                            {% if value %}
+                                checked
+                            {% else %}{% endif %}>
+                            <label class="form-check-label" for="band">B{{ key }}</label>
+                        </div>
+                    {% endfor %}
+                        <button class="btn btn-outline-primary" type="submit">Save</button>
+                    </form>
+                </div>
+                {% endif %}
+
+                <!-- MODEM ENPOINT -->
+                <div class='row'>
+                    <p><span class="h5 text-light">Modem Endpoint</span></p>
+                    <form action='/settings' method="POST">
+                        <div class="col input-group">
+                            <span class="input-group-text">Host</span>
+                            <input type="text" class="form-control" value={{ endpoint.host }} name='host'>
+                            <span class="input-group-text">Port</span>
+                            <input type="text" class="form-control" value={{ endpoint.port }} name='port'>
+                            <div class='col mx-3'>
+                                <button type="submit" class="btn btn-outline-primary">Save</button>
+                            </div> 
+                        </div>     
+                    </form>
+                </div>
+            </div>
+        </div>   
+    </div>
+</main> 
+{% endblock %}
