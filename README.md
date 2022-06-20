@@ -1,6 +1,6 @@
 # Aircard-Status
 
-Web interface for viewing general status of Sierra Wireless Aircard modems
+Web interface for viewing the general status of Sierra Wireless Aircard modems
 
  ![example](https://github.com/dwmclean1/Aircard-Status/blob/55c8f6300a688945efbeb72c8964b316f8277beb/Screen%20Shot%202021-10-09%20at%2011.45.13%20am.png)
 
