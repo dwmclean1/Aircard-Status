@@ -7,11 +7,9 @@ Web interface for viewing the general status of Sierra Wireless Aircard modems
 ## Overview
 
 I made this simple web interface to show the modems signal quality and to access some settings that are not available through the built-in interface. This includes the ability to select specfic LTE frequency bands in order to obtain the fastest connection for your location.  
-The modems ip address and port number are stored in a .env file in the base directory and is required for the app to run. These can later be changed through the web interface.
+The modems IP address and port number are stored in a .env file in the base directory and is required for the app to run. These can later be changed through the web interface.
 
-
-
-This is intended to be run as a local web server on a device such as a raspberry pi. Chrome is recommeded.
+This is intended to be run as a local web server on a device such as a raspberry pi. Chrome is recommeded for compatibility.
 
 Currently I have only tested this with a Netgear AC800s. The response parser should be able to handle other models that use the same message formatting but it may be slighty buggy. 
 
